@@ -1,3 +1,5 @@
+__version__ = '1.0.0'
+
 from collections import OrderedDict
 from itertools import zip_longest
 
