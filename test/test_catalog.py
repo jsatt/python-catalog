@@ -48,3 +48,12 @@ class TestCatalog(TestCase):
                                  [self.TestNum.blue, self.TestNum.red])
         with self.assertRaises(AttributeError):
             del self.TestNum.red
+
+    def test_zip(self):
+        values = self.TestNum._zip()
+        self.assertSequenceEqual(
+            list(values), (('red', 1, 'Red', 'stuff'), ('blue', 2, 'Blue', 'things')))
+
+    def test_zip_w_list(self):
+        values = self.TestNum._zip('label', 'value')
+        self.assertSequenceEqual(list(values), (('Red', 1), ('Blue', 2)))

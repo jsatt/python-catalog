@@ -17,7 +17,7 @@ class CatalogMeta:
         member_cls = newattrs.get('_member_class', CatalogMember)
 
         item_attrs = tuple(newattrs.get('_attrs', ['value']))
-        kls._primary_value_ = item_attrs[0]
+        kls._attrs_ = ('name',) + item_attrs
 
         for attr, values in newattrs.items():
             if not attr.startswith('_'):
@@ -30,7 +30,7 @@ class CatalogMeta:
 
     def __call__(cls, value, key=None):
         if key is None:
-            key = cls._primary_value_
+            key = cls._attrs_[1]
         return next((i for i in cls._member_map_.values() if getattr(i, key) == value), None)
 
     def __len__(cls):
@@ -49,6 +49,12 @@ class CatalogMeta:
         if attr in cls._member_map_:
             raise AttributeError("cannot delete member")
         super().__delattr__(attr)
+
+    def _zip(cls, *attrs):
+        if not attrs:
+            attrs = cls._attrs_
+        return (tuple(getattr(m, n) for n in attrs)
+                for m in cls._member_map_.values())
 
 
 class CatalogMember:
