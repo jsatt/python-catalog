@@ -1,4 +1,4 @@
-__version__ = '1.0.0'
+__version__ = '1.1.1'
 
 from collections import OrderedDict
 from itertools import zip_longest

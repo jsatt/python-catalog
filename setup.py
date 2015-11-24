@@ -1,10 +1,15 @@
 #!/usr/bin/env python
 
-from setuptools import setup
+import sys
+if sys.version_info < (3,):
+    print('This package requires Python 3.')
+    sys.exit(1)
+
+from distutils.core import setup
 
 import catalog
 
-long_description = open('README.md').read()
+long_description = open('README').read()
 
 setup_args = dict(
     name='pycatalog',
@@ -15,7 +20,6 @@ setup_args = dict(
     author_email='jsatt@jsatt.com',
     url='https://github.com/jsatt/python-catalog',
     license="MIT License",
-    platform='any',
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Console',
