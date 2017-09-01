@@ -68,6 +68,8 @@ the member name.
 Changelog
 ---------
 
+1.2.0 - Add support for Python 2. (Wrong direction. I know)
+
 1.1.1 - Add ``_zip`` method
 
 1.0.0 - Initial build and packaging

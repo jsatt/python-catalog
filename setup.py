@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 
-from distutils.core import setup
+from setuptools import setup
 
 long_description = open('README.rst').read()
 
 setup_args = dict(
     name='pycatalog',
-    version='1.1.1',
+    version='1.2.0',
     description='Data structure for complexe enumeration.',
     long_description=long_description,
     author='Jeremy Satterfield',
@@ -14,7 +14,8 @@ setup_args = dict(
     url='https://github.com/jsatt/python-catalog',
     license="MIT License",
     install_requires=[
-        'future'],
+        'future'
+    ],
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Console',
